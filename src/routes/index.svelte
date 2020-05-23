@@ -24,5 +24,5 @@ main {
 <h1>Great success!</h1>
 
 <a href="calculate/">Go</a>
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+
 </main>
