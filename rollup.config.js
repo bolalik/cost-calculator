@@ -53,9 +53,7 @@ export default {
 
 			!dev && terser({
 				module: true
-			}) && ghPages.publish('public', (err) => {
-				console.log("published to github", err)
-			})
+			}) 
 		],
 
 		preserveEntrySignatures: false,
@@ -97,7 +95,9 @@ export default {
 				'process.env.NODE_ENV': JSON.stringify(mode)
 			}),
 			commonjs(),
-			!dev && terser()
+			!dev && terser() && ghPages.publish('__sapper__/export', (err) => {
+				console.log("published to github", err)
+			})
 		],
 
 		preserveEntrySignatures: false,
