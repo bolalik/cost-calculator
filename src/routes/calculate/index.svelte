@@ -14,12 +14,16 @@
 <script>
   export let sections;
   let total = 0;
-  let maxTotal = 0;
+  let totalExtra = 0;
   let selected = [];
+  let selectedExtra = [];
 
   let active = true;
 
   let count = 0;
+
+  $: sel = selected.toString();
+
 </script>
 
 <style>
@@ -31,17 +35,17 @@
 <svelte:head>
   <title>Sapper project template</title>
 </svelte:head>
-{#each sections as section, id}
+{#each sections as section}
 
-  <ChoiceCard {section} {id} bind:total  bind:maxTotal  bind:selected/>
+  <ChoiceCard {section} bind:total  bind:totalExtra  bind:selected  bind:selectedExtra/>
 {/each}
-<h1>{total}</h1>
-{#if maxTotal}
-  <h1>{maxTotal}</h1>
+<h1>Total: {total}</h1>
+{#if totalExtra}
+  <h1> Max Total: {totalExtra+total}</h1>
 {/if}
 
 
-<h1>{selected.toString()}</h1>
+<h1>{sel}</h1>
 
 <p>
 Icons made by

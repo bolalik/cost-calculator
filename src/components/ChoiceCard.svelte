@@ -5,24 +5,52 @@
 <script>
   export let section;
   export let total;
-  export let maxTotal;
+  export let totalExtra;
   export let selected;
+  export let selectedExtra;
 
   let activeYes = false;
   let activeNo = false;
   let activeMaybe = false;
 
+  let yes = "positive-vote.svg";
+  let no = "negative-vote.svg";
+  let maybe = "anonymous.svg";
+
   function choice(section, choice) {
     const baseUnit = +section.base.replace(/^\D+/g, "");
+    let addTotal = () => {
+      total += baseUnit;
+      selected.push(section.base);
+      console.log(selected);
+    };
+
+    let rmTotal = () => {
+      total -= baseUnit;
+      selected.pop(section.base);
+      console.log(selected);
+    };
+    let addTotalExtra = () => {
+      totalExtra += baseUnit;
+      selectedExtra.push(section.base);
+      console.log("extra", selectedExtra);
+    };
+    let rmTotalExtra = () => {
+      totalExtra -= baseUnit;
+      selectedExtra.pop(section.base);
+      console.log("extra", selectedExtra);
+    };
+
     if (choice === "yes") {
       activeYes = !activeYes;
-      if (activeYes) {
-        total += baseUnit;
-        selected.push(section.base);
-        console.log(selected);
+
+      if (activeYes && activeMaybe) {
+        addTotal();
+        rmTotalExtra();
+      } else if (activeYes) {
+        addTotal();
       } else {
-        total -= baseUnit;
-        selected.pop(section.base);
+        rmTotal();
       }
 
       activeNo = false;
@@ -31,9 +59,9 @@
       activeNo = !activeNo;
 
       if (activeNo && activeYes) {
-        total -= baseUnit;
+        rmTotal();
       } else if (activeNo && activeMaybe) {
-        maxTotal -= baseUnit;
+        rmTotalExtra();
       }
 
       activeYes = false;
@@ -41,11 +69,13 @@
     } else if (choice === "maybe") {
       activeMaybe = !activeMaybe;
 
-      if (activeMaybe && !activeYes) {
-        maxTotal += baseUnit;
-      } else if (activeMaybe && !activeYes) {
+      if (activeMaybe && activeYes) {
+        rmTotal();
+        addTotalExtra();
+      } else if (activeMaybe) {
+        addTotalExtra();
       } else {
-        maxTotal -= baseUnit;
+        rmTotalExtra();
       }
 
       activeYes = false;
@@ -53,9 +83,6 @@
     }
   }
 
-  let yes = "positive-vote.svg";
-  let no = "negative-vote.svg";
-  let maybe = "anonymous.svg";
 </script>
 
 <style>
@@ -107,7 +134,6 @@
     on:click={choice(section, 'maybe')} />
   <img src={maybe} alt=" img " />
 </label>
-{activeYes} {total}
 {#if activeYes}
   <h3>{section.base}</h3>
 
@@ -115,3 +141,5 @@
     <h4>{section.extra}</h4>
   {/if}
 {/if}
+
+{selected.toString()}
