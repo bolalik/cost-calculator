@@ -28,12 +28,12 @@ export const Default = () => ({
   },
 });
 //  card Yes
-export const Yes = () => ({
+export const Art = () => ({
   Component: Card,
   props: {
     card: {
       ...cardData,
-      title: 'Yes',
+      title: 'Art',
     },
   },
   on: {
@@ -41,12 +41,12 @@ export const Yes = () => ({
   },
 });
 //  card No
-export const No = () => ({
+export const Education = () => ({
   Component: Card,
   props: {
     card: {
       ...cardData,
-      title: 'No',
+      title: 'Education',
     },
   },
   on: {

@@ -6,39 +6,48 @@ export default {
   excludeStories: /.*Data$/
 };
 
+export const cardListData = {
+  id: '1',
+  title: "What's your site about?",
+  text: 'This will help us find you some starting ideas and examples.',
+}
+
 export const defaultCardsData = [
-  { ...cardData, id: "1", title: "Card 1" },
-  { ...cardData, id: "2", title: "Card 2" },
-  { ...cardData, id: "3", title: "Card 3" },
-  { ...cardData, id: "4", title: "Card 4" },
-  { ...cardData, id: "5", title: "Card 5" },
-  { ...cardData, id: "6", title: "Card 6" }
+  { ...cardData, id: "1", title: "Education" },
+  { ...cardData, id: "2", title: "Fashion" },
+  { ...cardData, id: "3", title: "Politics" },
+  { ...cardData, id: "4", title: "Art" },
+  { ...cardData, id: "5", title: "Consulting" },
+  { ...cardData, id: "6", title: "Design" }
 ];
-export const withPinnedCardsData = [
-  ...defaultCardsData.slice(0, 5),
-  { id: "6", title: "Card 6 (pinned)", state: "TASK_PINNED" }
-];
+
 
 // default CardList state
 export const Default = () => ({
   Component: CardList,
-   props: {
+  props: {
+    cardList: cardListData,
     cards: defaultCardsData
   },
   on: {
     ...actionsData
   }
 });
-// cardlist with pinned cards
-export const WithPinnedCards = () => ({
+
+export const TopGoals = () => ({
   Component: CardList,
   props: {
-    cards: withPinnedCardsData
+    cardList: {...cardListData,
+    title: 'What are your top goals?',
+    text: "Select all that apply. If something interests you but isn't a top priority, no worries. You can add all our features to any template."},
+    cards: defaultCardsData
   },
   on: {
     ...actionsData
   }
 });
+
+
 // cardlist in loading state
 export const Loading = () => ({
   Component: CardList,
