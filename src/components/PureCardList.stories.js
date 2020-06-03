@@ -2,7 +2,7 @@
 import CardList from "./CardList.svelte";
 import { cardData, actionsData } from "./Card.stories";
 export default {
-  title: "CardList",
+  title: "PureCardList",
   excludeStories: /.*Data$/
 };
 
@@ -23,7 +23,7 @@ export const defaultCardsData = [
 
 
 // default CardList state
-export const Default = () => ({
+export const Default1 = () => ({
   Component: CardList,
   props: {
     cardList: cardListData,
@@ -38,7 +38,7 @@ export const TopGoals = () => ({
   Component: CardList,
   props: {
     cardList: {...cardListData,
-    title: 'What are your top goals?',
+    title: 'What are your top goals "Otlyn"?',
     text: "Select all that apply. If something interests you but isn't a top priority, no worries. You can add all our features to any template."},
     cards: defaultCardsData
   },

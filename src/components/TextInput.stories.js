@@ -1,8 +1,8 @@
-// src/components/slider.stories.js
-import Slider from './Slider.svelte';
+// src/components/textInput.stories.js
+import TextInput from './TextInput.svelte';
 // import { action } from "@storybook/addon-actions";
 export default {
-    title: 'slider',
+    title: 'textInput',
     excludeStories: /.*Data$/,
 };
 
@@ -10,34 +10,49 @@ export default {
 //   onChoice: action('onChoice'),
 // };
 
-export const sliderData = {
-    id: "",
-    price: 1000,
-    pressed: false
+export const textInputData = {
+    id: "1",
+    label: "Label",
+    placeholder: "placeholder",
+    value: "",
 };
 
-// default slider state
+// default textInput state
 export const Default = () => ({
-    Component: Slider,
+    Component: TextInput,
     props: {
-        slider: sliderData,
+        textInput: textInputData,
     },
     // on: {
     //     ...actionsData,
     // },
 });
-//  slider Yes
-export const Thousand3 = () => ({
-    Component: Slider,
+//  textInput Yes
+export const Domain = () => ({
+    Component: TextInput,
     props: {
-        slider: {
-            ...sliderData,
-            price: 3000,
+        textInput: {
+            ...textInputData,
+            label: "What is your domain name?",
+            placeholder: "yourwebsite.com...",
         },
     },
     // on: {
     //     ...actionsData,
     // },
 });
-//  slider No
+//  textInput No
 
+export const SiteAbout = () => ({
+    Component: TextInput,
+    props: {
+        textInput: {
+            ...textInputData,
+            label: "Don't see what you’re looking for?",
+            placeholder: "Describe your site...",
+        },
+    },
+    // on: {
+    //     ...actionsData,
+    // },
+});

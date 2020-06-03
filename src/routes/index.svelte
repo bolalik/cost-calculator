@@ -1,3 +1,8 @@
+<script>
+  import { AppStore } from "./../store";
+  import ChoiceScreen from "./../components/ChoiceScreen.svelte";
+</script>
+
 <style>
   main {
     /* position: relative; */
@@ -13,8 +18,7 @@
     flex-wrap: wrap; */
     align-content: center;
     align-items: center;
-	text-align: center;
-	
+    text-align: center;
   }
 
   @media (min-width: 480px) {
@@ -29,9 +33,10 @@
 </svelte:head>
 
 <main>
-  <div >
+  <div>
     <h1>Great success!</h1>
 
     <a rel="prefetch" href="calculate/">Go</a>
   </div>
 </main>
+<ChoiceScreen error={$AppStore} />

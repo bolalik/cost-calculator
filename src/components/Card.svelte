@@ -19,7 +19,7 @@
   };
 
   // reactive declaration (computed prop in other frameworks)
-  $: isActive = card.active === "CARD_ACTIVE";
+  $: isActive = card.active === true;
 </script>
 
 <style>
@@ -58,4 +58,5 @@
 
 <div class="loading-item">
 <a href="/" on:click|preventDefault={Choice} class="card-title">{card.title}</a>
+{#if isActive} <span>selected</span>{/if}
 </div>
