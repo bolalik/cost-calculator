@@ -54,16 +54,3 @@ export const Education = () => ({
   },
 });
 
-//  card Maybe
-export const Maybe = () => ({
-  Component: Card,
-  props: {
-    card: {
-      ...cardData,
-      title: "I don't know",
-    },
-  },
-  on: {
-    ...actionsData,
-  },
-});

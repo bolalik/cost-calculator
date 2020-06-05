@@ -33,10 +33,9 @@
     display: inline-block;
     background-color: white;
     padding: 0.5rem;
-   
   }
-  input[type="range"]{
-      margin: 0;
+  input[type="range"] {
+    margin: 0;
   }
 
   .custom-range:focus {
@@ -200,12 +199,16 @@
     display: inline-block;
     background-color: white;
     padding: 0.5rem;
-    
+
+    font: 1em "Lucida Console", Monaco, monospace;
+
     height: 1.4rem;
     /* margin-top: -0.25rem; */
   }
-  .my-flex{
-      display: flex;
+  .my-flex {
+    display: flex;
+    background-color: white;
+    padding: 0.1rem 1rem;
   }
 </style>
 
@@ -216,6 +219,7 @@
     class="custom-range"
     max={10000}
     step={100} />
-    <span class="price">
-  {#if slider.price != 10000}${strPrice}{:else}${strPrice}+{/if}</span>
+  <span class="price">
+    {#if slider.price != 10000}${strPrice}{:else}${strPrice}+{/if}
+  </span>
 </label>

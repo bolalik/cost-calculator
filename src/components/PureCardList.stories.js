@@ -1,5 +1,5 @@
 // src/components/CardList.stories.js
-import CardList from "./CardList.svelte";
+import CardList from "./PureCardList.svelte";
 import { cardData, actionsData } from "./Card.stories";
 export default {
   title: "PureCardList",

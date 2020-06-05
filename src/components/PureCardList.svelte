@@ -1,16 +1,9 @@
 <script>
   import Card from "./Card.svelte";
-  import LoadingRow from "./LoadingCardList.svelte";
+  import LoadingRow from "./LoadingCard.svelte";
   export let loading = false;
   export let cards = [];
 
-  // Card props
-  export let cardList = {
-    id: "",
-    title: "",
-    text: "",
-    active: false
-  };
 
   $: noCards = cards.length === 0;
   $: emptyCards = cards.length === 0 && !loading;
@@ -46,39 +39,11 @@
     line-height: 20px;
     color: #666;
   }
-  .question {
-    display: block;
-    background-color: white;
-    padding: 2rem;
-  }
-  .question-title {
-    font-size: 2rem;
-
-    margin: 0.4rem;
-    line-height: 24px;
-    font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 800;
-    color: #555;
-  }
-  .question-text {
-    margin: 0.4rem;
-    font-size: 1.3rem;
-    line-height: 24px;
-    font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 200;
-    color: #555;
-  }
+  
 </style>
 
 {#if loading}
-  <div class="question">
-    <div class="question-title">
-      <LoadingRow />
-    </div>
-    <div class="question-text">
-      <LoadingRow />
-    </div>
-  </div>
+
   <div class="list-items">
     <LoadingRow />
     <LoadingRow />
@@ -98,10 +63,7 @@
 {/if}
 {#if !noCards}
   <div>
-    <div class="question">
-      <div class="question-title">{cardList.title}</div>
-      <div class="question-text">{cardList.text}</div>
-    </div>
+
     {#each cards as card}
       <Card {card} on:onChoice />
     {/each}

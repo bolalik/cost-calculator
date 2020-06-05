@@ -15,11 +15,19 @@ const textInputData = {
     value: "",
 };
 
+const titleData = {
+    id: '1',
+    title: 'What are your top goals?',
+    text: "Select all that apply. If something interests you but isn't a top priority, no worries. You can add all our features to any template.",
+};
+
+
 
 export const standard = () => ({
     Component: ChoiceScreen,
     props: {
         textInput: textInputData,
+        title: titleData
     }
 });
 
