@@ -3,14 +3,6 @@
 
   const dispatch = createEventDispatcher();
 
-  // event handler for Archive Card
-  //   function Choice() {
-  //     dispatch("onChoice", {
-  //       id: card.id
-  //     });
-  //   }
-
-  // Card props
   export let textInput = {
     id: "",
     label: "",
@@ -23,12 +15,10 @@
   input {
     width: 12rem;
     padding: 0.5rem;
-    font: 1rem "Lucida Console", Monaco, monospace;
+    font: 1.2rem "Roboto", Monaco, monospace;
     border: 0;
   }
-  /* input:valid {
-    border: 0.1rem solid aquamarine;
-  } */
+
   input:focus {
     color: royalblue;
     border: 0.1rem solid aquamarine;
@@ -44,17 +34,28 @@
     background-color: white;
     border: 0.1rem solid aquamarine;
   }
-  .my-flex {
+  .text-flex {
     line-height: 24px;
-    font: 1.1em "Lucida Console", Monaco, monospace;
+    font: 1.3em "Roboto", Monaco, monospace;
     display: flex;
     background-color: white;
     flex-direction: column;
-    padding: 1rem;
+    padding: 1rem 2rem;
+    margin: 0 2rem;
+    text-align: start;
+  }
+  .title {
+    padding: 0.5rem;
+    margin: 0 1rem;
+  }
+  .input-text {
+    margin: 0 2rem;
   }
 </style>
 
-<label class="my-flex">
-  <p>{textInput.label}</p>
-  <input bind:value={textInput.value} placeholder={textInput.placeholder} />
-</label>
+<div class="text-flex">
+  <div class="title">{textInput.label}</div>
+  <div class="input-text">
+    <input bind:value={textInput.value} placeholder={textInput.placeholder} />
+  </div>
+</div>

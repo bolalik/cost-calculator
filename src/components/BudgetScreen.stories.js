@@ -8,14 +8,6 @@ export default {
 
 
 
-const textInputData = {
-    id: "1",
-    label: "Don't see what you’re looking for?",
-    placeholder: "Describe your site...",
-    value: "",
-};
-
-
 
 const titleData = {
     id: '1',
@@ -29,7 +21,6 @@ const titleData = {
     {  id: "3", title: "$5,000 - $10,000+" },
   ];
   
-
 
 export const standard = () => ({
     Component: BudgetScreen,

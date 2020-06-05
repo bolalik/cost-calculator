@@ -26,10 +26,9 @@
   }
   .question-title {
     font-size: 2rem;
-
     margin: 0.4rem;
     line-height: 24px;
-    font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Roboto", "Helvetica Neue", sans-serif;
     font-weight: 800;
     color: #555;
   }
@@ -37,7 +36,7 @@
     margin: 0.4rem;
     font-size: 1.3rem;
     line-height: 24px;
-    font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Roboto", "Helvetica Neue", sans-serif;
     font-weight: 200;
     color: #555;
   }

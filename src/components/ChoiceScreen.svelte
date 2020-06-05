@@ -1,10 +1,16 @@
 <script>
-  import CardList from "./CardList.svelte";
+  import CardList from "./PureCardList.svelte";
   import TextInput from "./TextInput.svelte";
   import Title from "./Title.svelte";
   export let error = false;
-  export let textInput;
-  export let title;
+  export let choiceScreen = {
+    textInput: "",
+    title: "",
+    cards: ""
+  };
+
+
+  
 </script>
 
 <div>
@@ -12,15 +18,17 @@
     <div>
       <div class="wrapper-message">
         <span class="icon-face-sad" />
-        <div class="title-message">Oh no!</div>
-        <div class="subtitle-message">Something went wrong</div>
+        <div class="title-message">Oh no!1</div>
+        <div class="subtitle-message">Something went wrong {error}</div>
       </div>
     </div>
   {:else}
     <div>
-      <Title {title} />
-      <CardList />
+      <Title title={choiceScreen.title} />
+      <CardList cards={choiceScreen.cards}   on:onChoice />
     </div>
-    <TextInput {textInput} />
+    {#if choiceScreen.textInput}
+      <TextInput textInput={choiceScreen.textInput} />
+    {/if}
   {/if}
 </div>

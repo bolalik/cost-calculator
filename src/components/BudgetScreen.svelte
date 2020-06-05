@@ -3,9 +3,10 @@
   import Slider from "./Slider.svelte";
   import Title from "./Title.svelte";
   export let error = false;
-  export let cards;
-  export let title;
-  
+ export let budgetScreen = {
+    title: "",
+    cards: ""
+  };
 </script>
 
 <div>
@@ -19,10 +20,10 @@
     </div>
   {:else}
     <div>
-      <Title {title} />
+      <Title title={budgetScreen.title} />
        <Slider  />
 
-      <CardList {cards}/>
+      <CardList cards={budgetScreen.cards}/>
     </div>
    
   {/if}

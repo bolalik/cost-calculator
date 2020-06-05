@@ -3,10 +3,12 @@
   import TextInput from "./TextInput.svelte";
   import Title from "./Title.svelte";
   export let error = false;
-  export let cards;
-  export let title;
-  export let textInputLike;
-  export let textInputYour;
+   export let domainScreen = {
+    textInputLike: "",
+    textInputYour:"",
+    title: "",
+    cards: ""
+  };
 </script>
 
 <div>
@@ -20,10 +22,10 @@
     </div>
   {:else}
     <div>
-      <Title {title} />
-      <CardList {cards} />
-      <TextInput textInput={textInputLike} />
-      <TextInput textInput={textInputYour} />
+      <Title title={domainScreen.title} />
+      <CardList cards={domainScreen.cards} />
+      <TextInput textInput={domainScreen.textInputLike} />
+      <TextInput textInput={domainScreen.textInputYour} />
     </div>
   {/if}
 </div>

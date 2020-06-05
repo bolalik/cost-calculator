@@ -4,7 +4,8 @@
   export let loading = false;
   export let cards = [];
 
-
+ 
+  
   $: noCards = cards.length === 0;
   $: emptyCards = cards.length === 0 && !loading;
 </script>
@@ -39,7 +40,12 @@
     line-height: 20px;
     color: #666;
   }
-  
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 2rem;
+    padding: 0 2rem;
+  }
 </style>
 
 {#if loading}
@@ -62,7 +68,7 @@
   </div>
 {/if}
 {#if !noCards}
-  <div>
+  <div class="cards">
 
     {#each cards as card}
       <Card {card} on:onChoice />

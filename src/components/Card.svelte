@@ -18,26 +18,32 @@
     active: false
   };
 
+  let isActive = "";
   // reactive declaration (computed prop in other frameworks)
-  $: isActive = card.active === true;
+  $: if(card.active === true){isActive = "active"};
 </script>
 
 <style>
-  .loading-item {
+  .card-item {
     height: 3rem;
     background: white;
     display: flex;
     align-items: center;
     line-height: 1rem;
-    padding-left: 16px;
+    padding: 0 0.5rem;
   }
+
+ 
   .card-title {
     display: inline-block;
     background-color: white;
     padding: 0.5rem;
     margin: 0rem;
-    font: 1em "Lucida Console", Monaco, monospace;
+    font: 1.3rem "Roboro", san-serif;
     border: 0rem solid azure;
+  }
+ .active{
+    border: 0.1rem solid aquamarine;
   }
 
   a {
@@ -56,7 +62,9 @@
 
 <!--src/components/Card.svelte-->
 
-<div class="loading-item">
-<a href="/" on:click|preventDefault={Choice} class="card-title">{card.title}</a>
-{#if isActive} <span>selected</span>{/if}
+<div class="card-item ">
+  <a href="/" on:click|preventDefault={Choice} class={`card-title  ${isActive}`}>
+    {card.title} {card.active}
+  </a>
+ 
 </div>

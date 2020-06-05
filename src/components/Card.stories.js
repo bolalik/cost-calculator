@@ -54,3 +54,16 @@ export const Education = () => ({
   },
 });
 
+export const Active = () => ({
+  Component: Card,
+  props: {
+    card: {
+      ...cardData,
+      title: 'Active',
+      active: true,
+    },
+  },
+  on: {
+    ...actionsData,
+  },
+});

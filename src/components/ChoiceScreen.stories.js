@@ -21,12 +21,16 @@ const titleData = {
     text: "Select all that apply. If something interests you but isn't a top priority, no worries. You can add all our features to any template.",
 };
 
+const choiceScreenData = {
+    textInput: textInputData,
+    title: titleData
+}
 
 
 export const standard = () => ({
     Component: ChoiceScreen,
     props: {
-        textInput: textInputData,
+        ...choiceScreenData,
         title: titleData
     }
 });
