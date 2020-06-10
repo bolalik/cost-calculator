@@ -20,7 +20,12 @@
   $: strPrice = slider.price.toLocaleString();
 </script>
 
-<style>
+<style lang="scss">
+  @import "./../static/my-theme.scss";
+  @import "@material/slider/mdc-slider";
+</style>
+
+<!-- <style>
   .custom-range {
     width: 15rem;
     height: 1.4rem;
@@ -210,7 +215,7 @@
     background-color: white;
     padding: 0.1rem 1rem;
   }
-</style>
+</style> -->
 
 <label class="my-flex">
   <input
@@ -223,3 +228,29 @@
     {#if slider.price != 10000}${strPrice}{:else}${strPrice}+{/if}
   </span>
 </label>
+
+<div
+  class="mdc-slider mdc-slider--discrete mdc-slider--display-markers"
+  tabindex="0"
+  role="slider"
+  data-step="2"
+  aria-valuemin="0"
+  aria-valuemax="10000"
+  aria-label="Select Value">
+  <div class="mdc-slider__track-container">
+    <div class="mdc-slider__track" />
+    <div class="mdc-slider__track-marker-container" />
+  </div>
+  <div class="mdc-slider__thumb-container">
+    <div class="mdc-slider__pin">
+      <span class="mdc-slider__pin-value-marker" />
+    </div>
+    <svg class="mdc-slider__thumb" width="21" height="21">
+      <circle cx="10.5" cy="10.5" r="7.875" />
+    </svg>
+    <div class="mdc-slider__focus-ring" />
+  </div>
+</div>
+<span class="price">
+  {#if slider.price != 10000}${strPrice}{:else}${strPrice}+{/if}
+</span>

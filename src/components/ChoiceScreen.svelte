@@ -8,9 +8,6 @@
     title: "",
     cards: ""
   };
-
-
-  
 </script>
 
 <div>
@@ -25,7 +22,7 @@
   {:else}
     <div>
       <Title title={choiceScreen.title} />
-      <CardList cards={choiceScreen.cards}   on:onChoice />
+      <CardList cards={choiceScreen.cards} on:choice />
     </div>
     {#if choiceScreen.textInput}
       <TextInput textInput={choiceScreen.textInput} />

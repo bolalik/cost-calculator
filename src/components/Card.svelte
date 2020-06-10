@@ -5,9 +5,11 @@
 
   // event handler for Archive Card
   function Choice() {
-    dispatch("onChoice", {
-      id: card.id
+    dispatch("choice", {
+      title: card.title,
+      state: card.state
     });
+    card.active = !card.active;
   }
 
   // Card props
@@ -17,13 +19,33 @@
     state: "",
     active: false
   };
-
-  let isActive = "";
-  // reactive declaration (computed prop in other frameworks)
-  $: if(card.active === true){isActive = "active"};
 </script>
 
-<style>
+<style lang="scss">
+  @import "./../static/my-theme.scss";
+  @import "@material/button/mdc-button";
+
+  .card-item {
+    margin: 0.1rem;
+  }
+  .card-item:hover {
+    border: solid aquamarine;
+    border-radius: 10px;
+    border-color: hsl(0, 0%, 91%);
+
+    margin: 0rem;
+  }
+
+  .active {
+    border: solid aquamarine;
+    border-radius: 10px;
+    border-color: hsl(0, 0%, 91%);
+    background-color: hsl(0, 0%, 91%)!important;
+    margin: 0rem;
+  }
+</style>
+
+<!-- <style>
   .card-item {
     height: 3rem;
     background: white;
@@ -33,7 +55,6 @@
     padding: 0 0.5rem;
   }
 
- 
   .card-title {
     display: inline-block;
     background-color: white;
@@ -42,29 +63,30 @@
     font: 1.3rem "Roboro", san-serif;
     border: 0rem solid azure;
   }
- .active{
+  .active {
     border: 0.1rem solid aquamarine;
   }
 
-  a {
+  button {
     color: black;
     transition: 0.2s ease-in-out;
     text-decoration: none;
+    border: 0.1rem transparent;
   }
 
-  a:hover {
+  button:hover {
     color: aqua;
     transition: 0.4s ease-in-out;
     background-color: white;
     border: 0.1rem solid aquamarine;
   }
-</style>
+</style> -->
 
-<!--src/components/Card.svelte-->
+<div class="card-item">
+  <button
+    on:click|preventDefault={Choice}
+    class={` mdc-button mdc-button--outlined card-title  ${card.active === true ? 'active' : ''}`}>
+    {card.title}
+  </button>
 
-<div class="card-item ">
-  <a href="/" on:click|preventDefault={Choice} class={`card-title  ${isActive}`}>
-    {card.title} {card.active}
-  </a>
- 
 </div>

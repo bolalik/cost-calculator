@@ -1,15 +1,34 @@
 <script>
-  import { budgetStore } from "./../store/budget";
+  import data from "../data/budget";
   import BudgetScreen from "./../components/BudgetScreen.svelte";
+
+  import Button from "../components/Button.svelte";
+
+  import { siteStore } from "./../store";
+  function onChoice(event) {
+    siteStore.choose(event.detail.title, event.detail.state);
+  }
 </script>
+
+<style>
+  .right {
+    float: right;
+  }
+  .flex {
+    display: block;
+  }
+</style>
 
 <svelte:head>
   <title>Cost Calculator: Site</title>
 </svelte:head>
-
 <div>
-  <BudgetScreen budgetScreen={$budgetStore} />
+  <BudgetScreen budgetScreen={data} on:choice={onChoice} />
 
-
-  <a href="domain">next</a>
+  <div class="flex">
+    <div class="right">
+      <Button href="process" color="secondary" value="back" />
+      <Button href="domain" />
+    </div>
+  </div>
 </div>

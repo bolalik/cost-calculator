@@ -3,9 +3,9 @@
   import TextInput from "./TextInput.svelte";
   import Title from "./Title.svelte";
   export let error = false;
-   export let domainScreen = {
+  export let domainScreen = {
     textInputLike: "",
-    textInputYour:"",
+    textInputYour: "",
     title: "",
     cards: ""
   };
@@ -23,9 +23,12 @@
   {:else}
     <div>
       <Title title={domainScreen.title} />
-      <CardList cards={domainScreen.cards} />
+      <CardList cards={domainScreen.cards} on:choice />
+
       <TextInput textInput={domainScreen.textInputLike} />
+
       <TextInput textInput={domainScreen.textInputYour} />
+
     </div>
   {/if}
 </div>

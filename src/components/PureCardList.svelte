@@ -71,7 +71,7 @@
   <div class="cards">
 
     {#each cards as card}
-      <Card {card} on:onChoice />
+      <Card {card}  on:choice />
     {/each}
   </div>
 {/if}
