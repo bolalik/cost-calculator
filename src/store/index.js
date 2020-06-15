@@ -13,7 +13,7 @@ function siteBox() {
   return {
     subscribe,
     choose: (title, state) =>
-      update(data => data + " " + state + ": " + title + ","
+      update(data => data + " " + state + ": " + title + ", "
       ),
   };
 };

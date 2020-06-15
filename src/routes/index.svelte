@@ -7,6 +7,9 @@
   function onChoice(event) {
     siteStore.choose(event.detail.title, event.detail.state);
   }
+  function addInput(event){
+
+  }
 </script>
 
 <style>
@@ -27,7 +30,7 @@
 
   <div class="flex">
     <div class="right">
-      <Button href="goals" />
+      <Button href="goals" on:click={addInput}/>
     </div>
   </div>
 </div>

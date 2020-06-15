@@ -22,7 +22,7 @@
     <div>
       <Title title={budgetScreen.title} />
        <Slider  />
-
+        
       <CardList cards={budgetScreen.cards} on:choice />
     </div>
    
